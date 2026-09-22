@@ -1,0 +1,1 @@
+<?php $aceh = App\Models\Propinsi::where("nama_prop", "ACEH")->get(); foreach($aceh as $p) { echo $p->kode_prop . " -> " . App\Models\Sekolah::whereHas("kecamatan.kabupaten", function($q) use ($p) { $q->where("kode_prop", $p->kode_prop); })->count() . "\n"; } 
