@@ -20,10 +20,12 @@
             <h1 class="text-2xl font-bold text-gray-900">Data Individu Mahasiswa</h1>
             <p class="text-sm text-gray-500 mt-0.5">Rincian data peserta PMB per individu</p>
         </div>
+        @if(!auth()->user()->hasRole('fakultas'))
         <button wire:click="create"
             class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition shadow-sm">
             ➕ Tambah Data
         </button>
+        @endif
     </div>
 
     {{-- ── Stat Mini Cards ─────────────────────────────────────────────── --}}
@@ -178,7 +180,9 @@
                         <th wire:click="sortBy('wilayah_id')" class="{{ $th }}">Wilayah{{ $icon('wilayah_id') }}</th>
                         <th wire:click="sortBy('kelompok_ukt_id')" class="{{ $th }}">UKT{{ $icon('kelompok_ukt_id') }}</th>
                         <th class="px-3 py-2 text-center font-semibold text-gray-600 text-[11px] uppercase tracking-wide">Status</th>
+                        @if(!auth()->user()->hasRole('fakultas'))
                         <th class="px-3 py-2 text-center font-semibold text-gray-600 text-[11px] uppercase tracking-wide">Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
@@ -221,6 +225,7 @@
                         <td class="px-3 py-2 text-center">
                             <span class="px-2 py-0.5 rounded text-[10px] font-medium {{ $badgeClass }}">{{ $statusIcon }} {{ $statusLabel }}</span>
                         </td>
+                        @if(!auth()->user()->hasRole('fakultas'))
                         <td class="px-3 py-2 text-center">
                             <div class="flex items-center justify-center gap-1.5">
                                 <button wire:click="edit({{ $row->id }})"
@@ -233,6 +238,7 @@
                                 </button>
                             </div>
                         </td>
+                        @endif
                     </tr>
                     @empty
                     <tr>
