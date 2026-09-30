@@ -117,7 +117,6 @@
             </div>
             @endif
         </div>
-    </div>
 
     <!-- Modal CRUD -->
     @if($showModal)
