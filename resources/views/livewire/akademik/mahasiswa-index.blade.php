@@ -56,13 +56,15 @@
     <div x-show="activeMainTab === 'overview'" x-transition.opacity>
 
     {{-- ══════════════════ STAT CARDS ══════════════════ --}}
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 mb-6">
         @php
         $cards = [
             ['label' => 'Mahasiswa Aktif',  'value' => $stats['aktif'],    'color' => 'green',  'icon' => '🎓', 'bg' => 'bg-green-50',  'text' => 'text-green-700',  'border' => 'border-green-100'],
             ['label' => 'Stop Out',         'value' => $stats['stop_out'], 'color' => 'amber',  'icon' => '⏸️', 'bg' => 'bg-amber-50',  'text' => 'text-amber-700',  'border' => 'border-amber-100'],
             ['label' => 'Drop Out',         'value' => $stats['drop_out'], 'color' => 'red',    'icon' => '❌', 'bg' => 'bg-red-50',    'text' => 'text-red-700',    'border' => 'border-red-100'],
             ['label' => 'Lulus / Alumni',   'value' => $stats['lulus'],    'color' => 'blue',   'icon' => '🏆', 'bg' => 'bg-blue-50',   'text' => 'text-blue-700',   'border' => 'border-blue-100'],
+            ['label' => 'Mengundurkan Diri','value' => $stats['undur_diri'],'color' => 'purple', 'icon' => '🚪', 'bg' => 'bg-purple-50', 'text' => 'text-purple-700', 'border' => 'border-purple-100'],
+            ['label' => 'Meninggal Dunia',  'value' => $stats['meninggal'], 'color' => 'gray',   'icon' => '⚰️', 'bg' => 'bg-gray-100',  'text' => 'text-gray-700',   'border' => 'border-gray-200'],
             ['label' => 'Total Mahasiswa',  'value' => $stats['total'],    'color' => 'indigo', 'icon' => '👥', 'bg' => 'bg-indigo-50', 'text' => 'text-indigo-700', 'border' => 'border-indigo-100'],
         ];
         @endphp

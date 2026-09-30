@@ -120,7 +120,9 @@ class MahasiswaIndex extends Component
             'stop_out'          => (clone $statsQuery)->where('status_akademik', 'Stop Out')->count(),
             'drop_out'          => (clone $statsQuery)->whereIn('status_akademik', ['Drop Out'])->count(),
             'lulus'             => (clone $statsQuery)->whereIn('status_akademik', ['Lulus', 'Alumni'])->count(),
-            'lainnya'           => (clone $statsQuery)->whereIn('status_akademik', ['Mengundurkan Diri', 'Meninggal', 'Lainnya'])->count(),
+            'undur_diri'        => (clone $statsQuery)->whereIn('status_akademik', ['Mengundurkan Diri', 'Undur Diri'])->count(),
+            'meninggal'         => (clone $statsQuery)->whereIn('status_akademik', ['Meninggal Dunia', 'Meninggal'])->count(),
+            'lainnya'           => (clone $statsQuery)->whereIn('status_akademik', ['Lainnya'])->count(),
             'total'             => (clone $statsQuery)->count(),
         ];
 
@@ -140,7 +142,9 @@ class MahasiswaIndex extends Component
             ['Stop Out',           $stats['stop_out'], '#F59E0B'],
             ['Drop Out',           $stats['drop_out'], '#EF4444'],
             ['Lulus/Alumni',       $stats['lulus'],    '#3B82F6'],
-            ['Lainnya',            $stats['lainnya'],  '#8B5CF6'],
+            ['Mengundurkan Diri',  $stats['undur_diri'], '#8B5CF6'],
+            ['Meninggal Dunia',    $stats['meninggal'],  '#64748B'],
+            ['Lainnya',            $stats['lainnya'],  '#94A3B8'],
         ];
 
         // ── Chart 3: Tren Tahunan ─────────────────────────────────────────────
