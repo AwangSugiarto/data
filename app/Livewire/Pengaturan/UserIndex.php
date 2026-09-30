@@ -60,6 +60,10 @@ class UserIndex extends Component
 
     public function save(): void
     {
+        \Illuminate\Support\Facades\Log::info('UserIndex save() dipanggil', [
+            'name' => $this->name, 'email' => $this->email, 'role' => $this->role, 'editMode' => $this->editMode
+        ]);
+
         if (!auth()->user()->hasAnyRole(['super-admin', 'admin', 'admin-pmb'])) {
             session()->flash('error', 'Akses ditolak. Anda tidak memiliki izin untuk menyimpan pengguna.');
             return;
