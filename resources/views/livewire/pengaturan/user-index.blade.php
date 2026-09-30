@@ -121,7 +121,7 @@
 
     <!-- Modal CRUD -->
     @if($showModal)
-    <div wire:key="user-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity opacity-0 duration-300" x-data="{}" x-init="setTimeout(() => $el.classList.remove('opacity-0'), 50)">
+    <div wire:key="user-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 overflow-hidden transform transition-all" @click.stop>
             <div class="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                 <h2 class="text-lg font-bold text-gray-900">{{ $editMode ? 'Edit Pengguna' : 'Tambah Pengguna Baru' }}</h2>
